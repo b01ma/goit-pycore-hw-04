@@ -6,11 +6,15 @@
         Alex Korp,3000
         Nikita Borisenko,2000
         Sitarama Raju,1000
-
     Ваше завдання - розробити функцію total_salary(path), яка аналізує цей файл і повертає 
     загальну та середню суму заробітної плати всіх розробників.
 
 '''
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+FILES_DIR = BASE_DIR / "files"
+
 # Format file, reason: I have generated the file with the wrong format
 def format_file(input_path: str, output_path: str) -> int:
 
@@ -27,7 +31,7 @@ def format_file(input_path: str, output_path: str) -> int:
                 output_file.write(new_line)
     return 0           
 
-format_file('./salary_data.txt', './salary_data_formatted.txt') 
+format_file(FILES_DIR / "salary_data.txt", FILES_DIR / "salary_data_formatted.txt") 
 
 # Calculate total salary and average salary
 def total_salary(path: str) -> tuple:
@@ -62,5 +66,5 @@ def total_salary(path: str) -> tuple:
         print(f'Error: {e}')
         return (0, 0)
 
-total, average = total_salary("./salary_data_formatted.txt")
+total, average = total_salary(FILES_DIR / "salary_data_formatted.txt")
 print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")

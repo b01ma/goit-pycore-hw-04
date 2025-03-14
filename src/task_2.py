@@ -5,6 +5,10 @@
     Ваше завдання - розробити функцію get_cats_info(path), яка читає цей файл та 
     повертає список словників з інформацією про кожного кота.
 '''
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent
+FILES_DIR = BASE_DIR / "files"
 
 # create cats info file
 def create_cats_info_file(path: str) -> int:
@@ -78,7 +82,7 @@ def create_cats_info_file(path: str) -> int:
             file.write(f'{cat}\n')
     return 0
 
-create_cats_info_file('./cats.txt')
+create_cats_info_file(FILES_DIR / 'cats.txt')
 
 # get cats info
 def get_cats_info(path: str) -> list:
@@ -105,6 +109,6 @@ def get_cats_info(path: str) -> list:
         print(f'Error: {e}')
     return cats
     
-cats_info = get_cats_info('./cats.txt')
+cats_info = get_cats_info(FILES_DIR / 'cats.txt')
 for cat in cats_info:
     print(f"id: {cat['id']:<20}\t name: {cat['name']:<10}\t age: {cat['age']:<5}")
