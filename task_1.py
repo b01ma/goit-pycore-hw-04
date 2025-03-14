@@ -62,4 +62,5 @@ def total_salary(path: str) -> tuple:
         print(f'Error: {e}')
         return (0, 0)
 
-print(total_salary('./salary_data_formatted.txt')) 
+total, average = total_salary("./salary_data_formatted.txt")
+print(f"Загальна сума заробітної плати: {total}, Середня заробітна плата: {average}")
