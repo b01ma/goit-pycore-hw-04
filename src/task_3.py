@@ -6,6 +6,9 @@
 
 from scripts import dir_tree
 
-if __name__ == "__main__":
+def main():
     dir_tree.main()
+
+if __name__ == "__main__":
+    main()
 
