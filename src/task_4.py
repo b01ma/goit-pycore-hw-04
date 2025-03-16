@@ -23,7 +23,7 @@ def main():
             continue
         
         if cmd in ["close", "exit"]:
-            print(Back.LIGHTWHITE_EX + Fore.BLACK + 'Good Buy.' + Style.RESET_ALL)
+            print(Back.LIGHTWHITE_EX + Fore.BLACK + 'Goodbye.' + Style.RESET_ALL)
             break
         elif cmd == 'hello':
             print(Fore.GREEN + 'Hello! I am your assistant, how can I help you?' + Style.RESET_ALL)

@@ -9,7 +9,7 @@ def add(name: str, phone: str) -> int:
     return 0
     
 def remove(name: str) -> int:
-    if name == '':
+    if not name:
         print(Fore.RED + 'Error: Please provide a name.', Style.RESET_ALL)
         return 1
     if name not in contacts:
@@ -21,7 +21,7 @@ def remove(name: str) -> int:
     return 0
     
 def update(name: str, phone: str) -> int:
-    if name == '':
+    if not name:
         print(Fore.RED + 'Error: Please provide a name.', Style.RESET_ALL)
         return 1
     if name not in contacts:
@@ -33,7 +33,7 @@ def update(name: str, phone: str) -> int:
     return 0
 
 def show(name: str) -> int:
-    if name == '':
+    if not name:
         print(Fore.RED + 'Error: Please provide a name.', Style.RESET_ALL)
         return 1
     if name not in contacts:
@@ -46,6 +46,9 @@ def show(name: str) -> int:
 def all() -> int:
     print(Fore.GREEN + f'List of all contacts', Style.RESET_ALL)
     print('')
+    if not contacts:
+        print(Fore.RED + 'No contacts found.', Style.RESET_ALL)
+        return 1
     for name, phone in contacts.items():
         print(Back.CYAN + f'{name}:' + Back.RESET +  Fore.GREEN + f'\t{phone}', Style.RESET_ALL)
     print('')
